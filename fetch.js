@@ -1,10 +1,11 @@
+"use strict";
+const assert = require("assert");
+
+// window.onload = function() {
+//   getPosts()
+// }
+
 let arrayOfPosts;
-
-window.onload = function() {
-  getPosts()
-
-}
-
 const getPosts = () => {
   fetch('http://jsonplaceholder.typicode.com/posts')
     .then(res => res.json())
@@ -23,4 +24,17 @@ const displayPost = () => {
     li.appendChild(text)
     allPosts.append(li)
   })
+  fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))
 }
+
+//Tests
+
+describe('Array', function() {
+  describe('#indexOf()', function() {
+    it('should return -1 when the value is not present', function(){
+      assert.equal(-1, [1,2,3].indexOf(4));
+    });
+  });
+});
